@@ -1,5 +1,5 @@
-from lipy.config import USER_PATH
-from lipy.client import ResponseObject
+from .config import USER_PATH
+from .client import ResponseObject
 
 
 class User(object):
