@@ -1,1 +1,2 @@
-API_URL = 'https://{}.lichess.org/api/'
+API_URL = '.lichess.org/api/'
+USER_PATH = 'user/'
