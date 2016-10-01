@@ -14,10 +14,7 @@ class Client(object):
         self._define_request_methods()
 
     def _make_request(self, path, lang='en', url_params={}):
-        print(path + ' = path')
-        print(lang + ' = lang')
         url = 'https://{}{}{}?'.format(lang, API_URL, path)
-        print(url + ' = url')
         return requests.get(url, params=url_params)
 
     def _define_request_methods(self):
