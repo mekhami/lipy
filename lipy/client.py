@@ -4,11 +4,13 @@ import requests
 from lipy.config import API_URL, PGN_URL
 from lipy.endpoints.users import UserEndpoint
 from lipy.endpoints.games import GameEndpoint
+from lipy.endpoints.tournaments import TournamentEndpoint
 
 
 class Client(object):
     _endpoints = [
         UserEndpoint,
+        TournamentEndpoint,
         GameEndpoint,
     ]
 

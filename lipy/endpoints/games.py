@@ -1,5 +1,5 @@
 from lipy.config import GAME_PATH
-from lipy.endpoints.users import ResponseObject
+from lipy.response import ResponseObject
 
 
 class GameEndpoint(object):
