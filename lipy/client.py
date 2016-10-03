@@ -1,13 +1,15 @@
 import inspect
 import requests
 
-from lipy.config import API_URL
+from lipy.config import API_URL, PGN_URL
 from lipy.endpoints.users import UserEndpoint
+from lipy.endpoints.games import GameEndpoint
 
 
 class Client(object):
     _endpoints = [
         UserEndpoint,
+        GameEndpoint,
     ]
 
     def __init__(self):
@@ -16,6 +18,10 @@ class Client(object):
     def _make_request(self, path, lang='en', url_params={}):
         url = 'https://{}{}{}?'.format(lang, API_URL, path)
         return requests.get(url, params=url_params)
+
+    def _make_pgn_request(self, path, lang='en', url_params={}):
+        url = 'https://{}{}{}'.format(lang, PGN_URL, path)
+        return requests.get(url, params=url_params, stream=True)
 
     def _define_request_methods(self):
         endpoint_instances = [end(self) for end in self._endpoints]

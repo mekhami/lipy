@@ -1,3 +1,5 @@
+import pprint
+
 from lipy.config import USER_PATH
 
 
@@ -6,7 +8,7 @@ class UserEndpoint(object):
         self.client = client
 
     def get_user(self, username, **url_params):
-        user_path = USER_PATH + username
+        user_path = USER_PATH + '/' + username
         return UserResponse(self.client._make_request(user_path, url_params=url_params))
 
     def get_team_users(self, team, **url_params):
@@ -20,6 +22,9 @@ class ResponseObject(object):
         for field in response:
             value = response[field] if field in response else None
             self.__setattr__(field, value)
+
+    def help(self):
+        return pprint.pprint(vars(self))
 
 
 class UserResponse(ResponseObject):
