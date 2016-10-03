@@ -1,4 +1,20 @@
-# A Python library for accessing the Lichess JSON/HTTP API.
+# A Python 3 library for accessing the Lichess JSON/HTTP API.
+
+## Requirements
+- Python 3
+- Requests
+
+## Quickstart
+```
+from lipy.client import Client
+
+client = Client()
+mekhami = client.get_user('mekhami')
+
+print(mekhami.id)  # 'mekhami'
+print(mekhami.perfs['classical']['rating'])  # '2790'    Hah. Yeah right.
+```
+
 
 ## TODO:
 - Pagination
